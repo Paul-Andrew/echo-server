@@ -44,8 +44,7 @@ Instructions
 
 Solution Notes
 --------------
-
-*Add solution notes here*
+For two concurrent servers, fork() was used. Both TCP and UDP used socket() and bind(), with  structs of type sockaddr_in to facilitate passing information to the socket functions.  TCP connections use listen() and accept() and later close() to link with a client, while UDP are able to skip to recvfrom(), which is needed to direct traffic. I was able to create a third client on 7778 using TCP, but I could not force it to accept arbitrary length messages.  I had a few ideas all of which did not pan out. Either my terminal of my clipboard only accommodate 4096 characters, which is short of the 64k goal, but I believe the limit is my system and not the program.  I used NCAT to test the UDP echo server, as I could not get telnet to work with that protocol. I would have liked to meet all the bullet points, but I am proud of what I was able to accomplish without prior knowledge of POSIX sockets.
 
 
 License
@@ -53,8 +52,7 @@ License
 
 This file is part of Echo-Server.
 
-Copyright (c) 2013 __your-name-here__
-
+Copyright (c) 2014 Paul Ferguson
 Echo-Server is free software: you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
